@@ -2,6 +2,9 @@ if (WIN32)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif()
 
+SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/out)
+SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/out)
+
 # lua static library
 add_library(lualib STATIC 
             lapi.c
@@ -34,7 +37,7 @@ add_library(lualib STATIC
             lvm.c
             lzio.c
             print.c)
-set_target_properties(lualib PROPERTIES OUTPUT_NAME "lib")
+set_target_properties(lualib PROPERTIES OUTPUT_NAME "lua")
 
 # lua interpreter
 link_directories(${LUA_BINARY_DIR})
